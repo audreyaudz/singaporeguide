@@ -4,12 +4,14 @@
   "description": "Minute Moment",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "yarn http-server",
+    "up": "yarn upgrade-interactive"
   },
   "author": "Audrey Kon",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^5.1.1"
+    "@popperjs/core": "^2.10.2",
+    "bootstrap": "^5.1.2"
   },
   "devDependencies": {
     "http-server": "^13.0.2"
