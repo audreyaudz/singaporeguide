@@ -4,19 +4,22 @@ html(lang="en")
   body
     // Forked from a template on Tutorialzine: https://tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox
     include partials/search.pug
+    include partials/weather.pug
     section.hero    
       .background-image
       .hero-content-area
         h1 Welcome to Singapore Guide
         h3 Local Content, Locally Curated
-        a.btn(href='https://www.facebook.com/sgguidebot' target='_blank') More Local Content On Facebook
-        // consider adding multi data set https://tih-dev.stb.gov.sg/map-api/apis/get/v1/search/multidataset     
+        .hero-form
+          form 
+            input(type='search' placeholder='Start Your Search Here')
+            a.btn(href='#').fas          
+        //- a.btn(href='https://www.facebook.com/sgguidebot' target='_blank') More Local Content On Facebook
+        //- // consider adding multi data set https://tih-dev.stb.gov.sg/map-api/apis/get/v1/search/multidataset     
     section.content
       h3.title 
-        span Hello&nbsp;
-        span#forecast
-        span &nbsp;Little&nbsp;
-        span(style='color: red') Red Dot, 
+        span Today's weather in town is &nbsp;
+        span(style='color: red')#forecast
       p Go where the sights call out to you.
         br
         | Travel where the food is tasty.
@@ -78,15 +81,4 @@ html(lang="en")
           p
             | Got a competitive spirit? Sign up for one of our challenge-based marathons! Try to reach the summit before
             | any other group.
-    #contact
-      section.contact
-        h3.title Learn more
-        p
-          | Want to know about our upcoming events, or come to one of our mixers? Just sign up for our mailing list. No spam
-          | from us, we promise! Except for the spam we give you to keep up your energy while you're having fun with your
-          | friends. Have a blast! We have tons of that.
-        hr
-        form
-          input(type='email' placeholder='Email')
-          a.btn(href='#') Subscribe now
   include partials/footer.pug

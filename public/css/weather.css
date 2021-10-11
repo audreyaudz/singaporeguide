@@ -1,0 +1,41 @@
+#weather {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    width: 200px;
+    height: 100px;        
+    z-index: 20;
+    font-size: 40pt;    
+}
+
+#weather h1
+{
+    color: white;
+    font-family: "Raleway", sans-serif;    
+    font-size: 24pt;
+}
+
+
+.cloudy h1:after {
+    content: '☁️';    
+}
+
+.partly_cloudy h1:after
+{
+    content: '⛅';
+}
+
+.rainy h1:after
+{
+    content: '🌧';
+}
+
+.sunny h1:after
+{
+    content: '☀';
+}
+
+.thunderstorm h1:after
+{
+    content: '⛈';
+}
