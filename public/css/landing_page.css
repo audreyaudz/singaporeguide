@@ -19,7 +19,6 @@ nav {
 
 a {
 	text-decoration: none;
-	opacity: 0.75;
 	color: #fff;
 }
 
@@ -27,18 +26,26 @@ a:hover {
 	opacity: 1;
 }
 
-a.btn {
+.sgg-btn {
 	border-radius: 0px 4px 4px 0px;
-	text-transform: uppercase;
-	font-weight: bold;
-	text-align: center;
 	background-color: #e07e7b;
-	opacity: 1;
 	transition: all 400ms;
 }
 
+.sgg-search {
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+}
 a.btn:hover {
 	background-color: #ce5856;
+}
+
+#findcontent {
+	background-color:  #3b5998;
+	margin-top: 32px;
+	padding: 16px;
+	border-radius: 4px;
 }
 
 section {

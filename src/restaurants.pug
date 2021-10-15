@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    include partials/header.pug    
+    link(rel='stylesheet' href='css/landing_page.css')
+    link(rel='stylesheet' href='css/restaurant.css')    
+  body
+    section#rest_results 
+      .card-wrap
+        .card-header.one
+          .card-content
+            h1.card-title $title
+            .card-text $text
+            .card-btn.one code
+    script(type="module" src="./js/load_rest.js")
+    include partials/footer.pug
+
