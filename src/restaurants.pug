@@ -5,13 +5,13 @@ html(lang="en")
     link(rel='stylesheet' href='css/landing_page.css')
     link(rel='stylesheet' href='css/restaurant.css')    
   body
-    section#rest_results 
+    #rest_results 
       .card-wrap
         .card-header.one
-          .card-content
+          .card-image(style='background-image:url(\'$image\');')            
             h1.card-title $title
+          .card-content                        
             .card-text $text
             .card-btn.one code
+            
     script(type="module" src="./js/load_rest.js")
-    include partials/footer.pug
-

@@ -13,12 +13,12 @@ const getClassFromWeather = function(weather)
         case 'Cloudy':
             return 'cloudy'
         case 'Partly Cloudy':
+        case 'Partly Cloudy (Day)':
         case 'Partly Cloudy (Night)':
             return 'partly_cloudy'               
         case 'Sun' :
         case 'Sunny':
             return 'sunny'
-        
         case 'Light Rain':             
         case 'Rain':                 
         case 'Heavy Rain':
