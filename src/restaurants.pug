@@ -5,11 +5,14 @@ html(lang="en")
     link(rel='stylesheet' href='css/landing_page.css')
     link(rel='stylesheet' href='css/restaurant.css')    
   body
+    div#searchHeader
+      include partials/search.pug
+
     #rest_results 
       .card-wrap        
-        .card-header            
+        .card-header                      
           .card-image(style='background-image:url(\'$image\')')            
-            h1.card-title $title
+          .card-title $title
           .card-content                        
             .card-text $text
             .card-btn.one code

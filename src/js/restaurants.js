@@ -25,12 +25,10 @@ const getRestaurants = async function(keywords)
 const renderRestaurants = async function(keywords){
     if (!keywords || keywords.length === 0)
     {
-        alert("Empty search not allowed");
+        location.href='/index.html'
         return
     }
-    let restaurants = await getRestaurants(keywords)
-
-    alert(JSON.stringify(restaurants))    
+    return await getRestaurants(keywords)    
 }
 
 

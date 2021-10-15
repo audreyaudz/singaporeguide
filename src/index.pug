@@ -6,17 +6,14 @@ html(lang="en")
     script(type="module" src="/index.js")
   body
     // Forked from a template on Tutorialzine: https://tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox
-    include partials/search.pug
+    include partials/navbar.pug
     include partials/weather.pug
     section.hero    
       .background-image
       .hero-content-area
         h1 Welcome to Singapore Guide
         h3 Local Content, Locally Curated
-        .hero-form
-          form 
-            input#searchInput(type='search' placeholder='Start Your Search Here')
-            a.btn.sgg-btn.sgg-search(href='#',onclick='doSearch()').fas          
+        include partials/search.pug         
         //- a.btn(href='https://www.facebook.com/sgguidebot' target='_blank') More Local Content On Facebook
         //- // consider adding multi data set https://tih-dev.stb.gov.sg/map-api/apis/get/v1/search/multidataset     
     section.content
