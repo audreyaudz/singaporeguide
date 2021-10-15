@@ -17,20 +17,15 @@ html(lang="en")
         //- a.btn(href='https://www.facebook.com/sgguidebot' target='_blank') More Local Content On Facebook
         //- // consider adding multi data set https://tih-dev.stb.gov.sg/map-api/apis/get/v1/search/multidataset     
     section.content
-      h3.title 
-        span Today's weather in town is &nbsp;
-        span(style='color: red')#forecast
-      p Go where the sights call out to you.
+      p Eat, Explore, Educate (Repeat)
         br
-        | Travel where the food is tasty.
+        | From restuarant suggestions for your next meal
         br
-        | Do both when you are here in Singapore
+        | Things to explore whilst here in Singapore
         br
-        | Because anyone can find good food which fits your budget        
-          
+        a.btn(href='https://www.facebook.com/sgguidebot' target='_blank') Find Local Content On Facebook
+     
       hr
-      button.btn.btn-primary(onclick='javascript:openContactForm()')
-        | Subscribe
       ul.grid
         li
           i.fas.fa-utensils.fa-4x
@@ -48,37 +43,5 @@ html(lang="en")
           i.fas.fa-spa.fa-4x
           // Add in Parks
           h4 Take a walk in our parks
-    section.packages
-      h3.title Tour Packages
-      p
-        | We offer a variety of group (minimum 5 people) packages. Whether you've spent some summers together or this might
-        | be your first adventure, we've got the perfect vacation for you.
-      hr
-      ul.grid
-        li
-          i.fas.fa-compass.fa-4x
-          // https://tih-dev.stb.gov.sg/map-api/apis  for maps to accomodations and
-          h4 Guided Trips
-          p
-            | Looking for the complete experience? Take a tour with one of our experts. They'll show you secrets that
-            | you're likely to miss otherwise.
-        li
-          i.fas.fa-camera-retro.fa-4x
-          h4 Photo Trips
-          p
-            | Want to experience nature's beauty without all of that annoying exercise? Take a photo tour on one of our
-            em Life is a party!
-            | buses.
-        li
-          i.fas.fa-bicycle.fa-4x
-          h4 Biking Trips
-          p
-            | If bicycles are more your speed, consider taking a tour through one of our mountain or city bike paths. We'll
-            | provide the bikes, and lunch too!
-        li
-          i.fas.fa-flag-checkered.fa-4x
-          h4 Racing Trips
-          p
-            | Got a competitive spirit? Sign up for one of our challenge-based marathons! Try to reach the summit before
-            | any other group.
+
   include partials/footer.pug
