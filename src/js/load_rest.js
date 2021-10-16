@@ -24,7 +24,7 @@ const execSearch = async function()
         if (title) card.innerHTML = card.innerHTML.replace('$title', title)
         if (text) card.innerHTML = card.innerHTML.replace('$text', text)    
         if (image) 
-            card.innerHTML = card.innerHTML.replace('$image', "https://tih-api.stb.gov.sg/media/v1/download/uuid/"+image+"?apikey="+apikey)    
+            card.innerHTML = card.innerHTML.replace('$image', "/images/thi/"+image)  
         else
             card.innerHTML = card.innerHTML.replace('$image', './images/no_image.jpg')
         return card

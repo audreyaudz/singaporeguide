@@ -1,6 +1,9 @@
 const bent = require('bent')
 const getJSON = bent('json')
 
+const cache = {}
+
+
 KNOWN_APIS = 
 {    
     temperature:
@@ -25,11 +28,21 @@ KNOWN_APIS =
     }
 }
 
-const getAPI = async function(api)
+const getAPI = async function(api, args)
 {     
     api = KNOWN_APIS[api]    
+    if (!args) args = {} ;
+    cacheKey = api.name + JSON.stringify(args)    
+    if(cache[cacheKey])
+    {
+        console.log("Getting "+ api+ " from CACHE" + cacheKey);  
+        let value = api.filter(cache[cacheKey])
+        return Promise.resolve(value)
+    }
+
     console.log("Getting temperature from NEA " + api.name + " api");   
     let json = await getJSON(api.endpoint)    
+    cache[cacheKey] = json
     value = json    
     if (api.filter && typeof api.filter === 'function')
     {

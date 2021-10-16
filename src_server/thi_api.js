@@ -25,14 +25,14 @@ const KNOWN_APIS =
 const getAPI = async function(api, args)
 {     
     api = KNOWN_APIS[api];
-    cacheKey = api.name + JSON.stringify(args)
     if (!args) args = {} ;
+    cacheKey = api.name + JSON.stringify(args)    
     console.log (api);
-
     if(cache[cacheKey])
     {
         console.log("Getting "+ api+ " from CACHE" + cacheKey);  
-        return Promise.resolve(cache[cacheKey])
+        let value = api.filter(cache[cacheKey])
+        return Promise.resolve(value)
     }
 
     console.log("Getting "+ api+ " from THI" + api.name + " api");   

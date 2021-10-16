@@ -41,6 +41,18 @@ module.exports = {
         });
       },
     },
+    {
+      src: '/images/thi/.*',
+      dest: (req, res) => {
+        // remove /api prefix (optional)
+        //req.url = req.url.replace(/^/api//, '/');
+
+        return proxy.web(req, res, {
+          hostname: 'localhost',
+          port: 3001,
+        });
+      },
+    },
   ]
 
 };
