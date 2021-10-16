@@ -1,4 +1,5 @@
 import loadRestaurantsFromAPI from './restaurants.js';
+import "winbox/dist/winbox.bundle.js";
 const resultsDiv = document.getElementById('rest_results');
 const template = resultsDiv.firstElementChild;
 
@@ -9,6 +10,19 @@ const apikey = window.localStorage.getItem('api_key')
 const urlParams = new URLSearchParams(window.location.search);
 const keyword = urlParams.get('query'); // specifically, we are looking at the ?query= part of the url, because that's the keyword
 
+
+window.restCardWrap = function(element){
+    new WinBox(
+    {
+        title: "Subscribe",
+        mount: element,
+        modal: true,
+        x: "center",
+        y: 10,
+        width: "50%",
+        height: 850
+    });
+}
 
 // We need to wrap this code into an async function, because we want to use await
 const execSearch = async function()

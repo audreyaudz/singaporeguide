@@ -6,11 +6,11 @@ import updateWeatherPanel from './js/weather';
 //#import "bootstrap/dist/js/bootstrap.esm.min.js"
 //import "bootstrap/dist/css/bootstrap.min.css"
 
-window.openContactForm = function(){
+window.restCardWrap = function(element){
     new WinBox(
     {
         title: "Subscribe",
-        mount: document.getElementById('contact'),
+        mount: element,
         modal: true,
         x: "center",
         y: 10,

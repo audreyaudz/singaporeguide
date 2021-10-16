@@ -9,11 +9,11 @@ html(lang="en")
       include partials/search.pug
 
     #rest_results 
-      .card-wrap        
+      .card-wrap       
         .card-header                      
           .card-image(style='background-image:url(\'$image\')')            
           .card-title $title
-          .card-content                        
+          .card-content(onclick='restCardWrap(this)')                        
             .card-text $text
             .card-btn.one code
           
