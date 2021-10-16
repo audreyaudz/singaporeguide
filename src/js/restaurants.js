@@ -3,7 +3,7 @@ const getRestaurants = function(keywords)
     console.log("Getting restaurants from backend");
     return new Promise((resolve, reject) =>
     {        
-        fetch("/api/restaurants?query="+encodeURIComponent(keywords))
+        fetch("/api/thi/restaurants_search?keyword="+encodeURIComponent(keywords))
         .then( response => response.json())
         .then ( json => {
             console.log(json)            

@@ -11,12 +11,14 @@ const KNOWN_APIS =
     {
         name: 'search for restaurant',
         endpoint:  "https://tih-api.stb.gov.sg/content/v1/food-beverages/search?apikey=$API_KEY&keyword=$KEYWORD",
+        filter: (json) => json.data
     },
 
     attractions_search: 
     {
         name:  'search for attractions',
-        endpoint:  "https://tih-api.stb.gov.sg/content/v1/attractions/search?apikey=$API_KEY&keyword=$KEYWORD"
+        endpoint:  "https://tih-api.stb.gov.sg/content/v1/attractions/search?apikey=$API_KEY&keyword=$KEYWORD",
+        filter: (json) => json.data
     }
 }
 
