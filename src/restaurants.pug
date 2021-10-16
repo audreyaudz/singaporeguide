@@ -5,12 +5,12 @@ html(lang="en")
     link(rel='stylesheet' href='css/landing_page.css')
     link(rel='stylesheet' href='css/restaurant.css')    
   body
+    include partials/navbar.pug
     div#searchHeader
-      include partials/search.pug
 
     #rest_results 
       .card-wrap       
-        .card-header                      
+        .sgg-card-header                      
           .card-image(style='background-image:url(\'$image\')')            
           .card-title $title
           .card-content(onclick='restCardWrap(this)')                        

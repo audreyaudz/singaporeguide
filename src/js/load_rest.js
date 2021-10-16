@@ -1,4 +1,5 @@
 import loadRestaurantsFromAPI from './restaurants.js';
+import '@fortawesome/fontawesome-free/css/all.css';
 import "winbox/dist/winbox.bundle.js";
 const resultsDiv = document.getElementById('rest_results');
 const template = resultsDiv.firstElementChild;
@@ -73,6 +74,6 @@ execSearch()
 window.doSearch = ()  =>
 {
     let keyword = document.getElementById('searchInput').value    
-    window.location = './restaurants.html?query='+encodeURIComponent(keyword)    
+    window.location = '/restaurants.html?query='+encodeURIComponent(keyword)    
   
 }
