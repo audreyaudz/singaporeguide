@@ -54,15 +54,13 @@ const getWeather = async function()
     console.log("Getting weather  from NEA API");
     return new Promise((resolve, reject) =>
     {
-        fetch("https://api.data.gov.sg/v1//environment/2-hour-weather-forecast")
-        .then( response => response.json())
+        fetch("/api/nea/forecast2h")        
+        .then (response => response.text())                
         .then ( data => {
             console.log(data)
-            // in the API response, find the weather for the city
-            let weather =  (data.items[0].forecasts.find((f) => f.area === 'City')['forecast'])
-            sessionStorage.setItem('weather', weather);
+            // in the API response, find the weather for the city            
             // let's store the weather in the browser so we can reuse it and not ask NEA on every page load            
-            resolve(weather)
+            resolve(data)
             }
         )
         .catch (error => reject(error))
@@ -75,14 +73,12 @@ const getTemperature = async function()
     console.log("Getting temperature from NEA API");
     return new Promise((resolve, reject) =>
     {
-        fetch("https://api.data.gov.sg/v1/environment/air-temperature")
-        .then( response => response.json())
+        fetch("/api/nea/temperature")
+        .then (response => response.text())                
         .then ( data => {
             console.log(data)
             // in the API response, find the weather for the city
-            let temperature =  (data.items[0].readings[0].value)
-            sessionStorage.setItem('temperature', temperature);
-            resolve(temperature)
+            resolve(data)
             }
         )
         .catch (error => reject(error))
@@ -97,17 +93,11 @@ const updateWeatherPanel = async function()
     let weather = sessionStorage.getItem('weather');
     let temperature = sessionStorage.getItem('temperature');
 
-    if (weather && weather.length > 0 && temperature && temperature.length > 0)
-    {
-        setWeather(weather, temperature);
-    }
-    else /* We found no weather in the browser's session storage */
-    {
-        weather = await getWeather();
-        temperature = await getTemperature();
+    weather = await getWeather();
+    temperature = await getTemperature();
 
-        setWeather(weather, temperature);        
-    }
+    setWeather(weather, temperature);        
+
 }
 
 
