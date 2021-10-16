@@ -1,15 +1,23 @@
-import renderRestaurants from './restaurants.js';
+import loadRestaurantsFromAPI from './restaurants.js';
 const resultsDiv = document.getElementById('rest_results');
 const template = resultsDiv.firstElementChild;
+
+// get the API key from the browser storage
 const apikey = window.localStorage.getItem('api_key')
 
+// extract the keywords we are searching for from the browser's url bar
 const urlParams = new URLSearchParams(window.location.search);
-const keyword = urlParams.get('query');
+const keyword = urlParams.get('query'); // specifically, we are looking at the ?query= part of the url, because that's the keyword
 
+
+// We need to wrap this code into an async function, because we want to use await
 const execSearch = async function()
 {
 
-    const results = await renderRestaurants(keyword)
+    const results = await loadRestaurantsFromAPI(keyword)
+    
+
+    
 
     const createNewCard = (title, text, image) =>{
         let card = template.cloneNode(true)
