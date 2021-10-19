@@ -13,41 +13,45 @@ const keyword = urlParams.get('query'); // specifically, we are looking at the ?
 
 
 window.restCardWrap = function(element){
+    let json = window.cache[element]
+
     new WinBox(
     {
-        title: "Subscribe",
-        mount: element,
-        modal: true,
-        x: "center",
+        title: json.name,
+        html: json.body + '<pre>' + JSON.stringify(json, null, 2) + '</pre>',
+        // modal: true,
+        x: 10,
         y: 10,
-        width: "50%",
-        height: 850
+        width: 500,
+        height: 850,
     });
 }
 
+window.cache = {}
 // We need to wrap this code into an async function, because we want to use await
 const execSearch = async function()
 {
 
     const results = await loadRestaurantsFromAPI(keyword)
-    
 
-    
 
-    const createNewCard = (title, text, image) =>{
+
+
+    const createNewCard = (title, text, image, json) =>{
         let card = template.cloneNode(true)
         if (title) card.innerHTML = card.innerHTML.replace('$title', title)
-        if (text) card.innerHTML = card.innerHTML.replace('$text', text)    
-        if (image) 
-            card.innerHTML = card.innerHTML.replace('$image', "/images/thi/"+image)  
+        if (text) card.innerHTML = card.innerHTML.replace('$text', text)
+        if (json) window.cache[card] = json
+        if (image)
+            card.innerHTML = card.innerHTML.replace('$image', "/images/thi/"+image)
         else
             card.innerHTML = card.innerHTML.replace('$image', './images/no_image.jpg')
         return card
-    }   
+    }
 
 
     results.forEach((restaurant, index) =>
-    {    
+    {
         let image = null
         if (restaurant.images && Array.isArray(restaurant.images) && restaurant.images.length > 0)
         {
@@ -62,7 +66,7 @@ const execSearch = async function()
             image = restaurant.thumbnails[thumb].uuid
         }
 
-        resultsDiv.appendChild(createNewCard(restaurant.name, restaurant.body, image)) 
+        resultsDiv.appendChild(createNewCard(restaurant.name, restaurant.body, image, restaurant))
     })
 
     // remove the template
@@ -73,7 +77,7 @@ execSearch()
 
 window.doSearch = ()  =>
 {
-    let keyword = document.getElementById('searchInput').value    
-    window.location = '/restaurants.html?query='+encodeURIComponent(keyword)    
-  
+    let keyword = document.getElementById('searchInput').value
+    window.location = '/restaurants.html?query='+encodeURIComponent(keyword)
+
 }

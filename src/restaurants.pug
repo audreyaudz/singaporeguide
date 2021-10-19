@@ -1,21 +1,21 @@
 doctype html
 html(lang="en")
   head
-    include partials/header.pug    
+    include partials/header.pug
     link(rel='stylesheet' href='css/landing_page.css')
-    link(rel='stylesheet' href='css/restaurant.css')    
+    link(rel='stylesheet' href='css/restaurant.css')
   body
     include partials/navbar.pug
     div#searchHeader
 
-    #rest_results 
-      .card-wrap       
-        .sgg-card-header                      
-          .card-image(style='background-image:url(\'$image\')')            
+    #rest_results
+      .card-wrap(onclick='restCardWrap(this)')
+        .sgg-card-header
+          .card-image(style='background-image:url(\'$image\')')
           .card-title $title
-          .card-content(onclick='restCardWrap(this)')                        
+          .card-content
             .card-text $text
             .card-btn.one code
-          
-            
+
+
     script(type="module" src="./js/load_rest.js")
