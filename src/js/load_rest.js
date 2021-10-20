@@ -15,15 +15,15 @@ const keyword = urlParams.get('query'); // specifically, we are looking at the ?
 window.restCardWrap = function(element){
     let json = window.cache[element]
 
-    new WinBox(
-    {
+  new WinBox({
         title: json.name,
         html: json.body + '<pre>' + JSON.stringify(json, null, 2) + '</pre>',
         // modal: true,
-        x: 10,
-        y: 10,
-        width: 500,
-        height: 850,
+        border: 4,
+        x: "center",
+        y: "center",
+        width: "50%",
+        height: "50%",
     });
 }
 
