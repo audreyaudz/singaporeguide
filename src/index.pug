@@ -1,31 +1,31 @@
 doctype html
 html(lang="en")
-  head  
+  head
     include partials/header.pug
     link(rel='stylesheet' href='css/landing_page.css')
     script(type="module" src="/index.js")
   body
     // Forked from a template on Tutorialzine: https://tutorialzine.com/2016/06/freebie-landing-page-template-with-flexbox
     include partials/weather.pug
-    section.hero    
+    section.hero
       .background-image
       .hero-content-area
         h1 Welcome to Singapore Guide
         h3 Local Content, Locally Curated
-        include partials/search.pug         
+        include partials/search.pug
         //- a.btn(href='https://www.facebook.com/sgguidebot' target='_blank') More Local Content On Facebook
-        //- // consider adding multi data set https://tih-dev.stb.gov.sg/map-api/apis/get/v1/search/multidataset     
+        //- // consider adding multi data set https://tih-dev.stb.gov.sg/map-api/apis/get/v1/search/multidataset
     section.content
       p Eat, Explore, Educate (Repeat)
         br
-        | From restuarant suggestions for your next meal
+        | From restaurant suggestions for your next meal
         br
         | Things to explore whilst here in Singapore
-        br        
+        br
         a#findcontent.btn(href='https://www.facebook.com/sgguidebot' target='_blank')
           span.fab.fa-facebook.fa-2x
           span &nbsp;ind Local Content
-     
+
       hr
       ul.grid
         li
@@ -35,7 +35,7 @@ html(lang="en")
         li
           i.fas.fa-heart.fa-4x
           // Add in Recommendations
-          h4 Find some things to do here
+          h4 Find fun things to do here
         li
           i.fas.fa-route.fa-4x
           // Add in Plan Itinery
@@ -44,5 +44,3 @@ html(lang="en")
           i.fas.fa-spa.fa-4x
           // Add in Parks
           h4 Take a walk in our parks
-
-  include partials/footer.pug

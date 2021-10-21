@@ -171,26 +171,25 @@ header h2 {
 
 .hero-content-area {
 	opacity: 0;
-	margin-top: px;
 	animation: 1s slidefade 1s forwards;
 }
 
 .hero-form form {
-	display: inline;
+	/* display: inline; */
 	align-items: center;
 	justify-content: center;
 }
 
 .hero-form form .btn {
-	padding: 18px 42px;
+	padding: 18.5px 32px;
+  margin-top: -4px;
 }
 
 .hero form input {
-	padding: 14.02px;
-	margin-right: -3px;
+	padding: 14px;
+	/* margin-right: -2px; */
 	font-size: 18px;
 	color: #555;
-	flex: 1;
 }
 
 @media (max-width: 1000px) {
@@ -262,21 +261,12 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	background-color: #555;
+	background-color: #e07e7b;
 	color: #fff;
 	padding: 20px 0;
 }
 
-footer ul {
-	display: flex;
-}
-
-footer ul li {
-	margin-left: 16px;
-}
-
 footer p {
-	text-transform: uppercase;
 	font-size: 14px;
 	opacity: 0.6;
 	align-self: center;
@@ -290,9 +280,5 @@ footer p {
 	footer p {
 		text-align: center;
 		margin-bottom: 20px;
-	}
-
-	footer ul li {
-		margin: 0 8px;
 	}
 }
