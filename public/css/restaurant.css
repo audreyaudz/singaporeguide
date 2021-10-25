@@ -90,3 +90,14 @@
   .card-header.one{
     background: linear-gradient(to bottom left, var(--card1-gradient-color1), var(--card1-gradient-color2));
   }
+
+
+  .card-address
+  {
+    color: blue
+  }
+
+  #rest_details
+  {
+    display: none
+  }

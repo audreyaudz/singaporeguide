@@ -9,13 +9,31 @@ html(lang="en")
     div#searchHeader
 
     #rest_results
-      .card-wrap(onclick='restCardWrap(this)')
-        .sgg-card-header
+      .card-wrap(onclick='restCardWrap(this.firstElementChild.dataset.index)')
+        .sgg-card-header(data-index='$index')
           .card-image(style='background-image:url(\'$image\')')
           .card-title $title
           .card-content
             .card-text $text
             .card-btn.one code
+
+
+    #rest_details      
+      .card-wrap
+        .sgg-card-header
+          .card-image(style='background-image:url(\'$image\')')
+          .card-title $name ($categoryDescription)
+
+          .card-rating $rating ⭐
+          .card-content
+            .card-text.badge.badge-info $amenities
+            a.card-address(href='https://www.google.com/maps/place/$address.block+$address.streetName+$address.postalCode', target='_blank') $address.block $address.streetName $address.unitNumber $address.postalCode
+            .card-text $description
+            
+            a.card-address(href='tel:$contact.primaryContactNo') $contact.primaryContactNo
+            .card-text $body             
+          
+        
 
 
     script(type="module" src="./js/load_rest.js")

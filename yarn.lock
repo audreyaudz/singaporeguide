@@ -2915,6 +2915,7 @@ fsevents@~2.1.2:
     koa-body: ^4.2.0
     koa-router: ^10.1.1
     koa-static: ^5.0.0
+    mout: ^1.2.3
     rollup-plugin-pnp-resolve: ^2.0.0
     snowpack: ^3.8.8
     winbox: ^0.2.0
@@ -3045,6 +3046,13 @@ fsevents@~2.1.2:
   bin:
     mkdirp: bin/cmd.js
   checksum: a96865108c6c3b1b8e1d5e9f11843de1e077e57737602de1b82030815f311be11f96f09cce59bd5b903d0b29834733e5313f9301e3ed6d6f6fba2eae0df4298f
+  languageName: node
+  linkType: hard
+
+"mout@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "mout@npm:1.2.3"
+  checksum: 96137cd66ca740e5f3360d9ed94776bda568e1cc5568ea00b4d721a42a3df42e9f419bc80dbff5d781ac32a59e3fd0688c2e6a73279c9b72f768028056d97ad3
   languageName: node
   linkType: hard
 
