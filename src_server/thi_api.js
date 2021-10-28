@@ -56,4 +56,3 @@ const getAPI = async function(api, args)
 
 
 module.exports.getTHIAPI = getAPI
-

@@ -19,7 +19,7 @@
     background: #fff;
     border-radius: 20px;
     border: 5px solid #fff;
-    overflow: auto;
+    overflow: hidden;
     color: var(--color-text);
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
                 rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -99,5 +99,17 @@
 
   #rest_details
   {
-    display: none
+    display: none;
   }
+
+.winbox.my-theme{
+    background: #fff;
+}
+.winbox.my-theme .wb-body {
+}
+.winbox.my-theme .wb-title {
+    color: #000;
+}
+.winbox.my-theme .wb-icon {
+    filter: invert(1);
+}

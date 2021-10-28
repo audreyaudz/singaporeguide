@@ -66,6 +66,7 @@ window.restCardWrap = function(index){
             title: json.name,
             html: detailCard.innerHTML,
             // modal: true,
+            class: "my-theme",
             border: 4,
             x: "center",
             y: "center",
@@ -89,11 +90,22 @@ const execSearch = async function()
         card.innerHTML = card.innerHTML.replace('$index', id)
         if (title) card.innerHTML = card.innerHTML.replace('$title', title)
         if (text) card.innerHTML = card.innerHTML.replace('$text', text)
-        if (json) window.cache[id] = json
-        if (image)
+        if (json) window.cache[id] = json        
+        if (image) // image by uuid
+        {
             card.innerHTML = card.innerHTML.replace('$image', "/images/thi/"+image)
+        }
         else
-            card.innerHTML = card.innerHTML.replace('$image', './images/no_image.jpg')
+            // image by url
+            if (json.images.length > 0 && json.images[0].url.length > 0)
+            {
+                card.innerHTML = card.innerHTML.replace('$image', json.images[0].url)
+            }
+            else // no image
+            {
+                card.innerHTML = card.innerHTML.replace('$image', './images/no_image.jpg')
+            }
+            
         return card
     }
 

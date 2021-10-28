@@ -14,8 +14,6 @@ async function exists (path) {
 const {getTHIAPI} = require('./thi_api.js')
 const {getNEAAPI} = require('./nea_api.js')
 
-
-
 const bent = require('bent')
 const getBuffer = bent('buffer')
 MurmurHash3 = require('imurmurhash');
