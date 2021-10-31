@@ -81,10 +81,7 @@ const execSearch = async function()
 {
 
     const results = await loadRestaurantsFromAPI(keyword)
-
-
-
-
+    document.getElementById('resultcount').innerHTML = `There are ${results.length} restaurants found matching your search criteria.`
     const createNewCard = (id, title, text, image, json) =>{
         let card = template.cloneNode(true)
         card.innerHTML = card.innerHTML.replace('$index', id)

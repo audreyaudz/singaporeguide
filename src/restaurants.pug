@@ -8,6 +8,8 @@ html(lang="en")
     include partials/navbar.pug
     div#searchHeader
 
+    #resultcount Searching...
+    br
     #rest_results
       .card-wrap(onclick='restCardWrap(this.firstElementChild.dataset.index)')
         .sgg-card-header(data-index='$index')
