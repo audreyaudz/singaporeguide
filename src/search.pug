@@ -14,9 +14,10 @@ html(lang="en")
       .card-wrap(onclick='restCardWrap(this.firstElementChild.dataset.index)')
         .sgg-card-header(data-index='$index')
           .card-image(style='background-image:url(\'$image\')')
+          .card-type(class='$type')
           .card-title $title
           .card-content
-            .card-text $text
+            .card-text $text            
             .card-btn.one code
 
 

@@ -30,6 +30,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 window.doSearch = ()  =>
 {
     let keyword = document.getElementById('searchInput').value    
-    window.location = './restaurants.html?query='+encodeURIComponent(keyword)    
+    window.location = './search.html?query='+encodeURIComponent(keyword)    
   
 }

@@ -1,7 +1,7 @@
 import loadRestaurantsFromAPI from './restaurants.js';
+import loadAttractionsFromAPI from './attractions.js';
 import '@fortawesome/fontawesome-free/css/all.css';
 import "winbox/dist/winbox.bundle.js";
-
 import {default as getProp} from 'mout/object/get';
 
 
@@ -10,15 +10,13 @@ const detailDiv =  document.getElementById('rest_details');
 const template = resultsDiv.firstElementChild;
 const detailTemplate = detailDiv.firstElementChild;
 
-
-
 // get the API key from the browser storage
 const apikey = window.localStorage.getItem('api_key')
 
 // extract the keywords we are searching for from the browser's url bar
 const urlParams = new URLSearchParams(window.location.search);
 const keyword = urlParams.get('query'); // specifically, we are looking at the ?query= part of the url, because that's the keyword
-
+// const type = urlParams.get('type') ?? 'restaurant'
 
 window.restCardWrap = function(index){    
     let json = window.cache[index]
@@ -59,9 +57,6 @@ window.restCardWrap = function(index){
     }
     );
 
-    
-
-
     new WinBox({
             title: json.name,
             html: detailCard.innerHTML,
@@ -77,16 +72,25 @@ window.restCardWrap = function(index){
 
 window.cache = {}
 // We need to wrap this code into an async function, because we want to use await
-const execSearch = async function()
+const searchByType = async function(type)
 {
 
-    const results = await loadRestaurantsFromAPI(keyword)
-    document.getElementById('resultcount').innerHTML = `There are ${results.length} restaurants found matching your search criteria.`
+    let results = []
+    if (type === 'restaurant')
+    {
+      results = await loadRestaurantsFromAPI(keyword)
+    }
+    else
+    {
+        results = await loadAttractionsFromAPI(keyword)
+    }
+    document.getElementById('resultcount').innerHTML = `There are ${results.length} ${type}s found matching your search criteria.`
     const createNewCard = (id, title, text, image, json) =>{
         let card = template.cloneNode(true)
         card.innerHTML = card.innerHTML.replace('$index', id)
         if (title) card.innerHTML = card.innerHTML.replace('$title', title)
         if (text) card.innerHTML = card.innerHTML.replace('$text', text)
+        if (json && json.type) card.innerHTML = card.innerHTML.replace('$type', json.type)
         if (json) window.cache[id] = json        
         if (image) // image by uuid
         {
@@ -128,13 +132,26 @@ const execSearch = async function()
 
     // remove the template
 
+    
+}
+
+
+
+
+const execSearch = async function()
+{
+    await searchByType("restaurant")
+    await searchByType("attraction")
     template.remove()
 }
+
+
 execSearch()
+
 
 window.doSearch = ()  =>
 {
     let keyword = document.getElementById('searchInput').value
-    window.location = '/restaurants.html?query='+encodeURIComponent(keyword)
+    window.location = '/search.html?query='+encodeURIComponent(keyword)
 
 }
