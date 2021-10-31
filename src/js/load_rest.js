@@ -1,5 +1,6 @@
 import loadRestaurantsFromAPI from './restaurants.js';
 import loadAttractionsFromAPI from './attractions.js';
+import loadAccommodationsFromAPI from './accommodations.js';
 import '@fortawesome/fontawesome-free/css/all.css';
 import "winbox/dist/winbox.bundle.js";
 import {default as getProp} from 'mout/object/get';
@@ -18,8 +19,9 @@ const urlParams = new URLSearchParams(window.location.search);
 const keyword = urlParams.get('query'); // specifically, we are looking at the ?query= part of the url, because that's the keyword
 // const type = urlParams.get('type') ?? 'restaurant'
 
-window.restCardWrap = function(index){    
-    let json = window.cache[index]
+window.restCardWrap = function(type, index){    
+    
+    let json = window.cache[type+index]
 
     console.log(json)
 
@@ -78,20 +80,25 @@ const searchByType = async function(type)
     let results = []
     if (type === 'restaurant')
     {
-      results = await loadRestaurantsFromAPI(keyword)
+        results = await loadRestaurantsFromAPI(keyword)
+    }
+    else if ( type === 'accommodation')
+    {
+        results = await loadAccommodationsFromAPI(keyword)
     }
     else
     {
         results = await loadAttractionsFromAPI(keyword)
     }
     document.getElementById('resultcount').innerHTML = `There are ${results.length} ${type}s found matching your search criteria.`
-    const createNewCard = (id, title, text, image, json) =>{
+    const createNewCard = (id, title, text, image, json, _type) =>{
         let card = template.cloneNode(true)
         card.innerHTML = card.innerHTML.replace('$index', id)
         if (title) card.innerHTML = card.innerHTML.replace('$title', title)
         if (text) card.innerHTML = card.innerHTML.replace('$text', text)
+        if (_type) card.innerHTML = card.innerHTML.replace('$_type', _type)
         if (json && json.type) card.innerHTML = card.innerHTML.replace('$type', json.type)
-        if (json) window.cache[id] = json        
+        if (json) window.cache[type+id] = json        
         if (image) // image by uuid
         {
             card.innerHTML = card.innerHTML.replace('$image', "/images/thi/"+image)
@@ -127,12 +134,8 @@ const searchByType = async function(type)
             image = restaurant.thumbnails[thumb].uuid
         }
 
-        resultsDiv.appendChild(createNewCard(index, restaurant.name, restaurant.body, image, restaurant))
+        resultsDiv.appendChild(createNewCard(index, restaurant.name, restaurant.body, image, restaurant, type))
     })
-
-    // remove the template
-
-    
 }
 
 
@@ -142,6 +145,7 @@ const execSearch = async function()
 {
     await searchByType("restaurant")
     await searchByType("attraction")
+    await searchByType("accommodation")
     template.remove()
 }
 

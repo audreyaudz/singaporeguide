@@ -22,14 +22,13 @@
   }
 
 .Restaurants {
-  background-color: aqua;
+  background-image: aqua;
   position: relative;
-  float: left;
-  top: -100px;
+  width: max-content;
 }
 
 .Restaurants::after {
-  content: 'Restaurant';
+  content: 'Food';
 }
 
 .card-wrap {

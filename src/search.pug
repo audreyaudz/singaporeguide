@@ -11,8 +11,8 @@ html(lang="en")
     #resultcount Searching...
     br
     #rest_results
-      .card-wrap(onclick='restCardWrap(this.firstElementChild.dataset.index)')
-        .sgg-card-header(data-index='$index')
+      .card-wrap(onclick='restCardWrap(this.firstElementChild.dataset.type, this.firstElementChild.dataset.index)')
+        .sgg-card-header(data-index='$index', data-type='$_type')
           .card-image(style='background-image:url(\'$image\')')
           .card-type(class='$type')
           .card-title $title
