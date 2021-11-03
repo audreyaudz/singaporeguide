@@ -19,107 +19,94 @@
     gap: 10px;
   }
 
-.Restaurants {
-  background-color: aqua;
-  position: relative;
-}
-
-.fade
-{  
+.fade {  
   visibility: hidden !important;
   display: none !important;
 }
 
-.active
-{
+.active {
   display: flex !important;
   visibility: visible !important;
 }
 
-.Restaurants::after {
-  content: 'Food';
-  text-align: right;
+.card-wrap {
+  width: 220px;
+  height: 350px;
+  background: #fff;
+  border-radius: 6px;
+  border: 5px solid #e000;
+  overflow: hidden;
+  color: var(--color-text);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 1px 1px,
+              rgba(0, 0, 0, 0.23) 0px 2px 6px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  margin-left: 18px;
 }
 
-.card-wrap {
-    width: 220px;
-    height: 350px;
-    background: #fff;
-    border-radius: 20px;
-    border: 5px solid #fff;
-    overflow: hidden;
-    color: var(--color-text);
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
-                rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    margin-left: 18px;
-  }
+.card-wrap:hover{
+  box-shadow: rgb(15, 15, 15) 0px 1px 1px,
+  rgb(51, 48, 224) 0px 2px 6px;
+}
 
-  .card-wrap:hover{
-    border: 4px solid #e07e7b;
-    -display: block;
-    -overflow: auto;
-    -transform: scale(1.1);
-  }
+.sgg-card-header{
+  height: 200px;
+  width: 100%;
+  --border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
+  display: grid;
+  place-items: center;
+}
 
-  .sgg-card-header{
-    height: 200px;
-    width: 100%;
-    --border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
-    display: grid;
-    place-items: center;
-  }
+.card-header i{
+  color: #fff;
+  font-size: 72px;
+}
+.card-image {
+  background-size: cover; background-repeat: no-repeat;
+  border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
+  width: 100%;
+  height: 150px;
+}
 
-  .card-header i{
-    color: #fff;
-    font-size: 72px;
-  }
-  .card-image
-  {
-    background-size: cover; background-repeat: no-repeat;
-    border-radius:100% 0% 100% 0% / 0% 50% 50% 100%;
-    width: 100%;
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: justify;
+}
 
-    height: 150px;
-  }
-  .card-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 15px;
-    text-align: justify;
-  }
-  .card-title{
-    color: black;
+.card-title {
+  color: black;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+  width: 95%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+}
 
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
-    width: 95%;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 5px;
-  }
-  .card-text{
+.card-text  {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
 
-    font-size: 12px;
-    margin-bottom: 20px;
-  }
-  .card-btn{
-    border: none;
-    border-radius: 100px;
-    padding: 5px 30px;
-    color: #fff;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-  }
-  .card-header.one{
-    background: linear-gradient(to bottom left, var(--card1-gradient-color1), var(--card1-gradient-color2));
-  }
+.card-btn {
+  border: none;
+  border-radius: 100px;
+  padding: 5px 30px;
+  color: #fff;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.card-header.one  {
+  background: linear-gradient(to bottom left, var(--card1-gradient-color1), var(--card1-gradient-color2));
+}
 
 
 .card-address {
