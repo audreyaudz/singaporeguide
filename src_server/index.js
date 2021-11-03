@@ -43,8 +43,9 @@ global.restaurant_cache = {}
 
 
 router.get('/api/thi/:id', async ctx => {      
-    console.log(ctx.params)   
+    console.log(ctx.params)       
     ctx.body = await getTHIAPI(ctx.params.id, ctx.query);
+
   });
  
 // A simple api into THI's image library  

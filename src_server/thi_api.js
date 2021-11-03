@@ -14,7 +14,7 @@ const KNOWN_APIS =
         filter: (json) => json.data
     },
 
-    accomodations_search: 
+    accommodations_search: 
     {
         name:  'search for accommodation',
         endpoint:  "https://tih-api.stb.gov.sg/content/v1/accommodation/search?apikey=$API_KEY&keyword=$KEYWORD",

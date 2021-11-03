@@ -6,9 +6,12 @@ import "winbox/dist/winbox.bundle.js";
 import {default as getProp} from 'mout/object/get';
 
 
-const resultsDiv = document.getElementById('rest_results');
+const restResultsDiv = document.getElementById('rest_results');
+const accoResultsDiv = document.getElementById('acco_results');
+const attrResultsDiv = document.getElementById('attr_results');
+
 const detailDiv =  document.getElementById('rest_details');
-const template = resultsDiv.firstElementChild;
+const template = document.getElementById('template').firstElementChild;
 const detailTemplate = detailDiv.firstElementChild;
 
 // get the API key from the browser storage
@@ -62,19 +65,19 @@ window.restCardWrap = function(type, index){
     new WinBox({
             title: json.name,
             html: detailCard.innerHTML,
-            // modal: true,
+            //modal: true,
             class: "my-theme",
             border: 4,
             x: "center",
-            y: "center",
-            width: "50%",
-            height: "50%",
+            y: 100,
+            width: 800,
+            height: 800,
         });
 }
 
 window.cache = {}
 // We need to wrap this code into an async function, because we want to use await
-const searchByType = async function(type)
+const searchByType = async function(type, resultsDiv)
 {
 
     let results = []
@@ -90,7 +93,7 @@ const searchByType = async function(type)
     {
         results = await loadAttractionsFromAPI(keyword)
     }
-    document.getElementById('resultcount').innerHTML = `There are ${results.length} ${type}s found matching your search criteria.`
+        
     const createNewCard = (id, title, text, image, json, _type) =>{
         let card = template.cloneNode(true)
         card.innerHTML = card.innerHTML.replace('$index', id)
@@ -118,6 +121,12 @@ const searchByType = async function(type)
     }
 
 
+    // let resultsDiv = restResultsDiv
+    //f (type === 'accommodation') { resultsDiv = accoResultsDiv }
+    //if (type === 'attraction') { resultsDiv = attrResultsDiv }
+
+
+
     results.forEach((restaurant, index) =>
     {
         let image = null
@@ -138,14 +147,13 @@ const searchByType = async function(type)
     })
 }
 
-
-
-
 const execSearch = async function()
 {
-    await searchByType("restaurant")
-    await searchByType("attraction")
-    await searchByType("accommodation")
+    
+    try{await searchByType("restaurant", restResultsDiv)} catch (ex) { console.warn(ex)}        
+    try{await searchByType("attraction", attrResultsDiv)} catch (ex) { console.warn(ex)}        
+    try{await searchByType("accommodation", accoResultsDiv)} catch (ex) { console.warn(ex)}        
+    
     template.remove()
 }
 

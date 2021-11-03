@@ -10,11 +10,9 @@
   margin-left: 18px;
 }
 
-#rest_results {
-    font-family: 'Roboto', sans-serif;
-
-    height: 100vh;
-    display: flex;
+#rest_results, #acco_results, #attr_results {
+    font-family: 'Roboto', sans-serif;    
+    display: inline-flex;
     /* flex-direction: row; */
     /* align-items: center; */
     flex-wrap: wrap;
@@ -22,13 +20,25 @@
   }
 
 .Restaurants {
-  background-image: aqua;
+  background-color: aqua;
   position: relative;
-  width: max-content;
+}
+
+.fade
+{  
+  visibility: hidden !important;
+  display: none !important;
+}
+
+.active
+{
+  display: flex !important;
+  visibility: visible !important;
 }
 
 .Restaurants::after {
   content: 'Food';
+  text-align: right;
 }
 
 .card-wrap {
@@ -80,6 +90,7 @@
     width: 90%;
     margin: 0 auto;
     margin-top: 15px;
+    text-align: justify;
   }
   .card-title{
     color: black;
@@ -111,24 +122,26 @@
   }
 
 
-  .card-address
-  {
-    color: blue
-  }
-
-  #rest_details
-  {
-    display: none;
-  }
-
-.winbox.my-theme{
-    background: #fff;
+.card-address {
+  color: blue
 }
+
+#rest_details {
+  display: none;
+}
+
+.winbox.my-theme  {
+    background: #fff;
+
+}
+
 .winbox.my-theme .wb-body {
 }
+
 .winbox.my-theme .wb-title {
     color: #000;
 }
+
 .winbox.my-theme .wb-icon {
     filter: invert(1);
 }
