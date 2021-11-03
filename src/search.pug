@@ -5,26 +5,16 @@ html(lang="en")
     link(rel='stylesheet' href='css/landing_page.css')
     link(rel='stylesheet' href='css/restaurant.css')
   body
-    include partials/navbar.pug
-    div#searchHeader    
-    #template(style='visibility:hidden')
-      .card-wrap(onclick='restCardWrap(this.firstElementChild.dataset.type, this.firstElementChild.dataset.index)')
-        .sgg-card-header(data-index='$index', data-type='$_type')
-          .card-image(style='background-image:url(\'$image\')')
-          .card-type(class='$type')
-          .card-title $title
-          .card-content
-            .card-text $text            
-            .card-btn.one code
+    include partials/navbar.pug     
     ul#myTab.nav.nav-tabs(role='tablist')
       li.nav-item(role='presentation')
-        button#restaurants-tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#rest_results' type='button' role='tab' aria-controls='rest_results' aria-selected='true') Restaurants
+        button#restaurant-tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#rest_results' type='button' role='tab' aria-controls='rest_results' aria-selected='true') Restaurants
       li.nav-item(role='presentation')
         button#attraction-tab.nav-link(data-bs-toggle='tab' data-bs-target='#attr_results' type='button' role='tab' aria-controls='attr_results' aria-selected='false') Attractions
       li.nav-item(role='presentation')
         button#accommodation-tab.nav-link(data-bs-toggle='tab' data-bs-target='#acco_results' type='button' role='tab' aria-controls='acco_results' aria-selected='false') Accommodations
     #myTabContent.tab-content
-      #rest_results.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='restaurants-tab')
+      #rest_results.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='restaurant-tab')
       #attr_results.tab-pane.fade(role='tabpanel' aria-labelledby='attraction-tab') 
       #acco_results.tab-pane.fade(role='tabpanel' aria-labelledby='accommodation-tab') 
   
@@ -41,5 +31,16 @@ html(lang="en")
             .card-text $description
             a.card-address(href='tel:$contact.primaryContactNo') $contact.primaryContactNo
             .card-text $body             
-          
+
+    #template(style='visibility:hidden')
+      .card-wrap(onclick='restCardWrap(this.firstElementChild.dataset.type, this.firstElementChild.dataset.index)')
+        .sgg-card-header(data-index='$index', data-type='$_type')
+          .card-image(style='background-image:url(\'$image\')')
+          .card-type(class='$type')
+          .card-title $title
+          .card-content
+            .card-text $text            
+            .card-btn.one code
+
+
     script(type="module" src="./js/load_rest.js")

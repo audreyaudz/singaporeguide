@@ -80,7 +80,8 @@ window.cache = {}
 const searchByType = async function(type, resultsDiv)
 {
 
-    let results = []
+    let results = []    
+
     if (type === 'restaurant')
     {
         results = await loadRestaurantsFromAPI(keyword)
@@ -92,7 +93,7 @@ const searchByType = async function(type, resultsDiv)
     else
     {
         results = await loadAttractionsFromAPI(keyword)
-    }
+    }    
         
     const createNewCard = (id, title, text, image, json, _type) =>{
         let card = template.cloneNode(true)
@@ -145,11 +146,14 @@ const searchByType = async function(type, resultsDiv)
 
         resultsDiv.appendChild(createNewCard(index, restaurant.name, restaurant.body, image, restaurant, type))
     })
+
+    document.getElementById(type+'-tab').innerHTML += ` (${results.length})`
+
 }
 
 const execSearch = async function()
 {
-    
+
     try{await searchByType("restaurant", restResultsDiv)} catch (ex) { console.warn(ex)}        
     try{await searchByType("attraction", attrResultsDiv)} catch (ex) { console.warn(ex)}        
     try{await searchByType("accommodation", accoResultsDiv)} catch (ex) { console.warn(ex)}        
