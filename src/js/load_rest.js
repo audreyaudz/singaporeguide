@@ -154,9 +154,9 @@ const searchByType = async function(type, resultsDiv)
 const execSearch = async function()
 {
 
-    try{await searchByType("restaurant", restResultsDiv)} catch (ex) { console.warn(ex)}        
-    try{await searchByType("attraction", attrResultsDiv)} catch (ex) { console.warn(ex)}        
-    try{await searchByType("accommodation", accoResultsDiv)} catch (ex) { console.warn(ex)}        
+    try{await searchByType("restaurant", restResultsDiv)} catch (ex) { document.getElementById('restaurant-tab').innerHTML += ` (0)`   }        
+    try{await searchByType("attraction", attrResultsDiv)} catch (ex) { document.getElementById('attraction-tab').innerHTML += ` (0)`        }        
+    try{await searchByType("accommodation", accoResultsDiv)} catch (ex) { document.getElementById('accommodation-tab').innerHTML += ` (0)`        }        
     
     template.remove()
 }
