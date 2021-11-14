@@ -183,8 +183,9 @@ header h2 {
 
 .hero-form form .btn {
 	padding: 23.1px 32px;
-  margin-top: -5px;
-  border: none;
+ 	margin-top: -5px;
+	border: none;
+	color: #fff;
 }
 
 .hero form input {
