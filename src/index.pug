@@ -26,23 +26,21 @@ html(lang="en")
           span &nbsp;ind Local Content
 
       hr
-      H3 If it is not listed, it is not done!
-      p Create a quick list of the things you want to do whilst in Singapore!
+      H3 Find some inspirations from some of the posts on Facebook
+
       ul.grid
         li
-          i.fas.fa-utensils.fa-4x
-          // Add in Restaurants
-          h4 Customise your restaurant list
+          .fb-post(data-href='https://www.facebook.com/600240357092630/posts/1301787860271206')
         li
-          i.fas.fa-heart.fa-4x
-          // Add in Recommendations - create list from URL input
-          h4 Curate your 'to-do' list
+          .fb-post(data-href='https://www.facebook.com/600240357092630/posts/1201606373622689')
         li
-          i.fas.fa-route.fa-4x
-          // Add in Plan Itinery - Create list from
-          h4 Compose your own itinery here
+          .fb-post(data-href='https://www.facebook.com/600240357092630/posts/762942800822384')
         li
-          i.fas.fa-spa.fa-4x
-          // Add in Parks
-          h4 Create a walk in our parks
+          .fb-post(data-href='https://www.facebook.com/600240357092630/posts/861242900992373')
+        li
+          .fb-post(data-href='https://www.facebook.com/600240357092630/posts/984674911982504')
+        li
+          .fb-post(data-href='https://www.facebook.com/600240357092630/posts/1209925342790792')
       include partials/footer.pug
+    #fb-root
+    script(async='' defer='' src='https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2')
