@@ -41,7 +41,7 @@ a.btn:hover {
 	margin-top: 32px;
 	padding: 16px;
 	border-radius: 4px;
-	color: #fff;
+  color: #fff;
 }
 
 section {
@@ -183,9 +183,8 @@ header h2 {
 
 .hero-form form .btn {
 	padding: 23.1px 32px;
- 	margin-top: -5px;
-	border: none;
-	color: #fff;
+  margin-top: -5px;
+  border: none;
 }
 
 .hero form input {
@@ -221,14 +220,37 @@ header h2 {
 /*Content Section*/
 
 .content .grid li {
-	padding: 20px;
-	flex-basis: 20%;
+	padding: 50px;
+	flex-basis: 50%;
 	text-align: center;
   list-style-type: none;
 }
 
 .content .grid li i {
 	color: #e07e7b;
+}
+/*Packages Section*/
+
+.packages .grid li {
+	padding: 50px;
+	flex-basis: 50%;
+	text-align: center;
+}
+
+.packages .grid li i {
+	color: #e07e7b;
+}
+
+.packages .grid li h4 {
+	font-size: 30px;
+	margin: 25px 0;
+}
+
+@media (max-width: 800px) {
+	.packages .grid li {
+		flex-basis: 100%;
+		padding: 20px;
+	}
 }
 
 /*Footer Section*/
